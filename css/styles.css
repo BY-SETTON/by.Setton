@@ -334,12 +334,13 @@
   .cta-section {
     background: var(--cream);
     border-top: 1px solid var(--stone);
-    padding: 6rem 4rem;
   }
   .cta-inner {
-    max-width: 1200px; margin: 0 auto;
     display: grid; grid-template-columns: 1fr 1.4fr;
     gap: 6rem; align-items: start;
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
   }
   .cta-left { }
   .cta-left .section-title { margin: 0.5rem 0 1.5rem; }
@@ -386,6 +387,14 @@
   .form-field textarea { min-height: 110px; }
   .form-field select { cursor: pointer; color: var(--ink); }
   .form-field select option { color: var(--ink); }
+
+  .form-field select {
+  color: var(--stone); /* placeholder colour by default */
+}
+
+.form-field select:valid {
+  color: var(--ink); /* switches to ink once a real option is chosen */
+}
 
   .form-submit {
     background: var(--accent); 
@@ -447,7 +456,7 @@
       padding-top: 3rem;
     }
     .hero-right { min-height: 320px; }
-    .hero-left, .hero-right, .services, .why, .cta-section, .process{ padding: 4rem 1.5rem; }
+    .hero-left, .hero-right, .services, .why, .process{ padding: 4rem 1.5rem; }
     .services-grid { grid-template-columns: 1fr; }
     .section-header { 
       grid-template-columns: 1fr;
