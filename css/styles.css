@@ -106,8 +106,6 @@
     text-transform: uppercase; color: var(--ink);
     text-decoration: none; border-bottom: 1px solid var(--stone);
     padding-bottom: 2px; transition: border-color 0.2s, color 0.2s;
-    color: var(--paper);
-    align-self: center;
   }
   .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
 
