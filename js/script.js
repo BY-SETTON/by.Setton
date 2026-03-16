@@ -48,3 +48,36 @@ if (form) {
     }
   });
 }
+
+(function() {
+  const track = document.getElementById('testimonialsTrack');
+  const dotsWrap = document.getElementById('tDots');
+  const prevBtn = document.getElementById('tPrev');
+  const nextBtn = document.getElementById('tNext');
+  if (!track) return;
+ 
+  const cards = track.querySelectorAll('.testimonial-card');
+  let current = 0;
+ 
+  // Build dots
+  cards.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 't-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+ 
+  function goTo(n) {
+    current = n;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dotsWrap.querySelectorAll('.t-dot').forEach((d, i) =>
+      d.classList.toggle('active', i === current)
+    );
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === cards.length - 1;
+  }
+ 
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+  goTo(0);
+})();
